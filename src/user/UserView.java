@@ -1,71 +1,70 @@
 package user;
 
+import manager.vmManagement.VmManagementView;
+import user.buying.BuyView;
+import user.money.ChargeView;
+
 import java.util.Scanner;
 
 public class UserView {
-    // 멤버변수
-    private Scanner scanner;
-    private UserService userService;
-    private UserDto userDto;
+    Scanner scanner;
+    ChargeView chargeView;
+    BuyView buyView;
+    VmManagementView vmManagementView;
 
-    private String userId = null;
-    private String userPw = null;
-    private String userName = null;
-    private String userTel = null;
-    private int userMoney;
-
-    // 생성자
     public UserView() {
         this.scanner = new Scanner(System.in);
-        this.userService = new UserService();
+        this.chargeView = new ChargeView();
+        this.buyView = new BuyView();
+        this.vmManagementView = new VmManagementView();
     }
 
-    // 메서드
-    public void signUpView() {
-        getInfoToSignUp();
+    public void showUserView(String userId) {
+        while (true) {
+            showUserMenu();
 
-        if (canUserSignUp()) {
-            doSignUpProcess();
-        } else {
-            System.out.println("기존 계정으로 로그인 해주세요.");
+            if (!selectUserMenu(userId)) {
+                break;
+            }
         }
     }
 
-    private void getInfoToSignUp() {
-        System.out.println("회원가입을 위한 정보를 입력하세요.");
-        System.out.println("아이디: ");
-        userId = scanner.next();
-
-        System.out.println("패스워드: ");
-        userPw = scanner.next();
-
-        System.out.println("이름: ");
-        userName = scanner.next();
-
-        System.out.println("연락처: ");
-        userTel = scanner.next();
+    private void showUserMenu() {
+        System.out.println("1.금액충전 2.제품구입 3.잔액반환 4.제품정보 5.종료");
     }
 
-    private boolean canUserSignUp() {
-        // 중복된 아이디가 아닐 것
-        //return (userId != userId ? true : false);
-        return true;
-    }
-
-    private void doSignUpProcess() {
-        userDto = UserDto.allData(userId, userPw,userName,userTel, userMoney);
-        int result = userService.signUpService(userDto);
-        if (result != 0) {
-            System.out.println("회원가입 성공");
-        } else {
-            System.out.println("회원가입 실패");
+    private boolean selectUserMenu(String userId) {
+        int option = scanner.nextInt();
+        switch (option) {
+            case 1:
+                chargeView.chargeMoneyView(userId);
+                break;
+            case 2:
+                buyView.buyProductView(userId);
+                break;
+            case 3:
+                chargeView.returnMoneyView(userId);
+                break;
+            case 4:
+                vmManagementView.showAllVMDataView();
+                break;
+            case 5:
+                System.out.println("사용을 종료하시겠습니까?(Y/N)");
+                String answer = scanner.next();
+                if (answer.equalsIgnoreCase("Y")) {
+                    return false;
+                    // false를 가지고 showUserView() 안의 호출한 곳으로 돌아가기
+                    // showUserView()의 반복문을 탈출해 쭉 거슬러 올라가 run()부터 다시 실행
+                } else if (answer.equalsIgnoreCase("N")) {
+                    break;
+                } else {
+                    System.out.println("잘못된 문자를 입력했습니다.");
+                    break;
+                }
+            default:
+                System.out.println("잘못된 번호를 선택했습니다.");
+                break;
         }
+        return true; // switch문 종료하고 다시 사용자 메뉴 보여주기
     }
-
-    public void signInView() {
-
-    }
-
-
-
 }
