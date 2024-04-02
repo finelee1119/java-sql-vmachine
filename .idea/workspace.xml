@@ -5,33 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e1dee75-cb05-4a2d-b7be-6a10164f4bbc" name="Changes" comment="commit change">
-      <change afterPath="$PROJECT_DIR$/src/dto/ProductDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dto/SalesDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/PrintInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/salesManagement/SalesManagementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/salesManagement/SalesManagementView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/userManagement/UserManagementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/userManagement/UserManagementView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/vmManagement/VmManagementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/manager/vmManagement/VmManagementView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/buying/BuyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/buying/BuyView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/money/ChargeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/money/ChargeView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vendingMachine/first/FirstUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vendingMachine/first/FirstUserView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/ManagerDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/ManagerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/manager/ManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/ManagerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/salesManagement/SalesManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/sales/SalesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/salesManagement/SalesManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/sales/SalesView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/userManagement/UserManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/member/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/userManagement/UserManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/member/MemberView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/vmManagement/VmManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/product/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/vmManagement/VmManagementView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/product/ProductView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/UserView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vendingMachine/VendingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vendingMachine/VendingMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/buying/BuyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/buy/BuyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/buying/BuyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/buy/BuyView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,22 +43,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/javawork/download/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar",
-    "onboarding.tips.debug.path": "C:/javawork/java-sql-vmachine/src/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/javawork/java-gsitm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/javawork/java-sql-vmachine/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\javawork\java-sql-vmachine\src\money" />
@@ -116,7 +99,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711702081996</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit change">
+      <option name="closed" value="true" />
+      <created>1711939852332</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711939852332</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit change">
+      <option name="closed" value="true" />
+      <created>1711939919910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711939919910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

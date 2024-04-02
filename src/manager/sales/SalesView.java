@@ -1,56 +1,57 @@
-package manager.salesManagement;
+package manager.sales;
 
 import dto.ProductDto;
 import dto.SalesDto;
 import dto.UserDto;
 import manager.PrintInfo;
-import manager.userManagement.UserManagementService;
-import manager.vmManagement.VmManagementService;
+import manager.member.MemberService;
+import manager.product.ProductService;
 
 import java.util.Scanner;
 
-public class SalesManagementView {
+public class SalesView {
     Scanner scanner;
-    SalesManagementService salesManagementService;
-    VmManagementService vmManagementService;
-    UserManagementService userManagementService;
+    SalesService salesService;
+    ProductService productService;
+    MemberService memberService;
     int productId;
     String userId;
 
-    public SalesManagementView() {
+    public SalesView() {
         this.scanner = new Scanner(System.in);
-        this.salesManagementService = new SalesManagementService();
-        this.vmManagementService = new VmManagementService();
-        this.userManagementService = new UserManagementService();
+        this.salesService = new SalesService();
+        this.productService = new ProductService();
+        this.memberService = new MemberService();
     }
 
-    public void showSalesManagementView() {
+    public void showSalesView() {
         while (true) {
-            showSalesManagementMenu();
+            showSalesMenu();
 
-            if (!selectSalesManagementMenu()) {
+            if (!selectSalesMenu()) {
                 break;
             }
         }
     }
 
-    private void showSalesManagementMenu() {
+    private void showSalesMenu() {
         System.out.println(
+                "[판매관리]\n" +
                 "1.제품별 판매현황 2.회원별 판매현황 3.총판매현황 4.종료");
     }
 
-    private boolean selectSalesManagementMenu() {
+    private boolean selectSalesMenu() {
         int option = scanner.nextInt();
         switch (option) {
             case 1:
                 System.out.println("판매현황을 조회할 제품번호를 입력하세요.");
                 productId = scanner.nextInt();
-                ProductDto productDto = vmManagementService.showOneVMData(productId);
+                ProductDto productDto = productService.showOneProductData(productId);
 
                 if (productDto == null) {
                     System.out.println("해당 제품이 존재하지 않습니다.");
                 } else {
-                    SalesDto salesDto = salesManagementService.getProductSalesReport(productId);
+                    SalesDto salesDto = salesService.getProductSalesReport(productId);
                     if (salesDto != null) {
                         PrintInfo.line();
                         PrintInfo.salesProductTitle();
@@ -66,12 +67,12 @@ public class SalesManagementView {
             case 2:
                 System.out.println("판매현황을 조회할 회원아이디를 입력하세요.");
                 userId = scanner.next();
-                UserDto userDto = userManagementService.showOneUserData(userId);
+                UserDto userDto = memberService.showOneUserData(userId);
 
                 if (userDto == null) {
                     System.out.println("해당 회원이 존재하지 않습니다.");
                 } else {
-                    SalesDto salesDto = salesManagementService.getUserSalesReport(userId);
+                    SalesDto salesDto = salesService.getUserSalesReport(userId);
                     if (salesDto != null) {
                         PrintInfo.line();
                         PrintInfo.salesUserTitle();
@@ -84,7 +85,7 @@ public class SalesManagementView {
                 }
                 break;
             case 3:
-                SalesDto totalSalesDto = salesManagementService.getTotalSalesReport();
+                SalesDto totalSalesDto = salesService.getTotalSalesReport();
                 if (totalSalesDto != null) {
                     PrintInfo.line();
                     PrintInfo.salesTotalTitle();

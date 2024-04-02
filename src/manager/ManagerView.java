@@ -1,22 +1,22 @@
 package manager;
 
-import manager.salesManagement.SalesManagementView;
-import manager.userManagement.UserManagementView;
-import manager.vmManagement.VmManagementView;
+import manager.sales.SalesView;
+import manager.member.MemberView;
+import manager.product.ProductView;
 
 import java.util.Scanner;
 
 public class ManagerView {
     Scanner scanner;
-    VmManagementView vmManagementView;
-    UserManagementView userManagementView;
-    SalesManagementView salesManagementView;
+    ProductView productView;
+    MemberView memberView;
+    SalesView salesView;
 
     public ManagerView() {
         this.scanner = new Scanner(System.in);
-        this.vmManagementView = new VmManagementView();
-        this.userManagementView = new UserManagementView();
-        this.salesManagementView = new SalesManagementView();
+        this.productView = new ProductView();
+        this.memberView = new MemberView();
+        this.salesView = new SalesView();
     }
 
     public void showManagerView() {
@@ -30,20 +30,20 @@ public class ManagerView {
     }
 
     private void showManagerMenu() {
-        System.out.println("1.자판기관리 2.회원관리 3.판매관리 4.관리자종료");
+        System.out.println("1.제품관리 2.회원관리 3.판매관리 4.관리자종료");
     }
 
     private boolean selectManagerMenu() {
         int option = scanner.nextInt();
         switch (option) {
             case 1:
-                vmManagementView.showVMManagementView();
+                productView.showProductView();
                 break;
             case 2:
-                userManagementView.showUserManagementView();
+                memberView.showMemberView();
                 break;
             case 3:
-                salesManagementView.showSalesManagementView();
+                salesView.showSalesView();
                 break;
             case 4:
                 System.out.println("관리자를 종료하고 첫화면으로 돌아가겠습니까?(Y/N)");

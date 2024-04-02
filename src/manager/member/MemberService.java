@@ -1,4 +1,4 @@
-package manager.userManagement;
+package manager.member;
 
 import db.DBConn;
 import dto.UserDto;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManagementService {
+public class MemberService {
     public int insertUserData(UserDto dto) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt = null;

@@ -1,4 +1,4 @@
-package user.buying;
+package user.buy;
 
 import db.DBConn;
 import dto.ProductDto;

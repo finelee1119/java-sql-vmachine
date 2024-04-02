@@ -1,10 +1,10 @@
-package user.buying;
+package user.buy;
 
 import dto.ProductDto;
 import dto.UserDto;
-import manager.userManagement.UserManagementService;
-import manager.vmManagement.VmManagementService;
-import manager.vmManagement.VmManagementView;
+import manager.member.MemberService;
+import manager.product.ProductService;
+import manager.product.ProductView;
 import user.money.ChargeService;
 
 import java.util.Scanner;
@@ -13,9 +13,9 @@ public class BuyView {
     Scanner scanner;
     BuyService buyService;
     ChargeService chargeService;
-    VmManagementView vmManagementView;
-    VmManagementService vmManagementService;
-    UserManagementService userManagementService;
+    ProductView productView;
+    ProductService productService;
+    MemberService memberService;
     ProductDto productDto;
     UserDto userDto;
     int productId;
@@ -25,13 +25,13 @@ public class BuyView {
         this.scanner = new Scanner(System.in);
         this.buyService = new BuyService();
         this.chargeService = new ChargeService();
-        this.vmManagementView = new VmManagementView();
-        this.vmManagementService = new VmManagementService();
-        this.userManagementService = new UserManagementService();
+        this.productView = new ProductView();
+        this.productService = new ProductService();
+        this.memberService = new MemberService();
     }
 
     public void buyProductView(String userId) {
-        vmManagementView.showAllVMDataView();
+        productView.showAllProductView();
         selectProduct();
 
         productDto = hasProduct();
@@ -66,16 +66,16 @@ public class BuyView {
         productId = scanner.nextInt();
     }
     private ProductDto hasProduct() {
-        return vmManagementService.showOneVMData(productId);
+        return productService.showOneProductData(productId);
     }
     private UserDto hasUser(String userId) {
-        return userManagementService.showOneUserData(userId);
+        return memberService.showOneUserData(userId);
     }
     private void deductMoney(String userId) {
         chargeService.updateBalance(userId, -productDto.productPrice());
     }
     private void deductStock() {
-        vmManagementService.updateVMData(
+        productService.updateProductData(
                 new ProductDto(
                         productId,
                         productDto.productName(),

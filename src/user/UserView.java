@@ -1,7 +1,7 @@
 package user;
 
-import manager.vmManagement.VmManagementView;
-import user.buying.BuyView;
+import manager.product.ProductView;
+import user.buy.BuyView;
 import user.money.ChargeView;
 
 import java.util.Scanner;
@@ -10,13 +10,13 @@ public class UserView {
     Scanner scanner;
     ChargeView chargeView;
     BuyView buyView;
-    VmManagementView vmManagementView;
+    ProductView productView;
 
     public UserView() {
         this.scanner = new Scanner(System.in);
         this.chargeView = new ChargeView();
         this.buyView = new BuyView();
-        this.vmManagementView = new VmManagementView();
+        this.productView = new ProductView();
     }
 
     public void showUserView(String userId) {
@@ -46,7 +46,7 @@ public class UserView {
                 chargeView.returnMoneyView(userId);
                 break;
             case 4:
-                vmManagementView.showAllVMDataView();
+                productView.showAllProductView();
                 break;
             case 5:
                 System.out.println("사용을 종료하시겠습니까?(Y/N)");

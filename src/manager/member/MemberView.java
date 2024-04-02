@@ -1,4 +1,4 @@
-package manager.userManagement;
+package manager.member;
 
 import dto.UserDto;
 import manager.PrintInfo;
@@ -6,47 +6,48 @@ import manager.PrintInfo;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserManagementView {
+public class MemberView {
     Scanner scanner;
-    UserManagementService userManagementService;
+    MemberService memberService;
 
-    public UserManagementView() {
+    public MemberView() {
         this.scanner = new Scanner(System.in);
-        this.userManagementService = new UserManagementService();
+        this.memberService = new MemberService();
     }
 
-    public void showUserManagementView() {
+    public void showMemberView() {
         while (true) {
-            showUserManagementMenu();
+            showMemberMenu();
 
-            if (!selectUserManagementMenu()) {
+            if (!selectMemberMenu()) {
                 break;
             }
         }
     }
 
-    private void showUserManagementMenu() {
+    private void showMemberMenu() {
         System.out.println(
+                "[회원관리]\n" +
                 "1.회원등록 2.회원수정 3.회원삭제 4.전체조회 5.회원검색 6.종료");
     }
 
-    private boolean selectUserManagementMenu() {
+    private boolean selectMemberMenu() {
         int option = scanner.nextInt();
         switch (option) {
             case 1:
-                insertUserDataView();
+                insertUserView();
                 break;
             case 2:
-                updateUserDataView();
+                updateUserView();
                 break;
             case 3:
-                deleteUserDataView();
+                deleteUserView();
                 break;
             case 4:
-                showAllUserDataView();
+                showAllUserView();
                 break;
             case 5:
-                showOneUserDataView();
+                showOneUserView();
                 break;
             case 6:
                 System.out.println("회원관리를 종료하시겠습니까?(Y/N)");
@@ -68,7 +69,7 @@ public class UserManagementView {
         return true; // switch문 종료하고 다시 회원관리 메뉴 보여주기
     }
 
-    private void insertUserDataView() {
+    private void insertUserView() {
         System.out.println("새로운 회원을 등록합니다.");
 
         System.out.println("아이디: ");
@@ -85,18 +86,18 @@ public class UserManagementView {
 
         UserDto dto = UserDto.allOfExceptBalance(userId,userPw,userName,userTel);
 
-        int result = userManagementService.insertUserData(dto);
+        int result = memberService.insertUserData(dto);
         if (result != 0) {
             System.out.println("회원등록 성공");
         } else {
             System.out.println("회원등록 실패");
         }
     }
-    private void updateUserDataView() {
+    private void updateUserView() {
         System.out.println("수정할 회원의 아이디를 입력하세요.");
         String oldId = scanner.next();
 
-        UserDto userDto = userManagementService.showOneUserData(oldId);
+        UserDto userDto = memberService.showOneUserData(oldId);
         if (userDto != null) {
             // 기존 회원 정보 출력 + 새로운 회원 정보 받기
             System.out.println("변경 전 아이디: " + userDto.userId());
@@ -115,7 +116,7 @@ public class UserManagementView {
             UserDto newUserDto = new UserDto(userId,userPw,userName,userTel, userDto.balance());
 
             // 데이터를 수정하는 메서드 호출
-            int result = userManagementService.updateUserData(newUserDto);
+            int result = memberService.updateUserData(newUserDto);
             if (result != 0) {
                 System.out.println("회원수정 성공");
             } else {
@@ -126,7 +127,7 @@ public class UserManagementView {
         }
 
     }
-    private void deleteUserDataView() {
+    private void deleteUserView() {
         int result;
         String deleteYesOrNo;
 
@@ -134,7 +135,7 @@ public class UserManagementView {
         System.out.println("삭제할 회원의 아이디를 입력하세요.");
         String userId = scanner.next();
 
-        UserDto userDto = userManagementService.showOneUserData(userId);
+        UserDto userDto = memberService.showOneUserData(userId);
         if (userDto != null) {
             // 삭제 의사 확인하기
             do {
@@ -145,7 +146,7 @@ public class UserManagementView {
 
             if (deleteYesOrNo.equalsIgnoreCase("Y")) {
                 // 삭제 처리하기
-                result = userManagementService.deleteUserData(userId);
+                result = memberService.deleteUserData(userId);
                 if (result != 0) {
                     System.out.println("회원삭제 성공");
                 } else {
@@ -156,9 +157,9 @@ public class UserManagementView {
             System.out.println("해당 회원이 존재하지 않습니다.");
         }
     }
-    private void showAllUserDataView() {
+    private void showAllUserView() {
         List<UserDto> dtoList;
-        dtoList = userManagementService.showAllUserData();
+        dtoList = memberService.showAllUserData();
 
         if (dtoList.isEmpty()) {
             System.out.println("회원 데이터가 존재하지 않습니다.");
@@ -172,12 +173,12 @@ public class UserManagementView {
             PrintInfo.line();
         }
     }
-    private void showOneUserDataView() {
+    private void showOneUserView() {
         String userId;
 
         System.out.println("검색할 회원아이디를 입력하세요.");
         userId = scanner.next();
-        UserDto userDto = userManagementService.showOneUserData(userId);;
+        UserDto userDto = memberService.showOneUserData(userId);;
 
         if (userDto == null) {
             System.out.println("해당하는 회원이 존재하지 않습니다.");

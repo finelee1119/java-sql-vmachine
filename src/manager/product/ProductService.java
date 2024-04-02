@@ -1,4 +1,4 @@
-package manager.vmManagement;
+package manager.product;
 
 import db.DBConn;
 import dto.ProductDto;
@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VmManagementService {
-    public int insertVMData(ProductDto dto) {
+public class ProductService {
+    public int insertProductData(ProductDto dto) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt;
         int result = 0;
@@ -31,7 +31,7 @@ public class VmManagementService {
         return result;
     }
 
-    public int updateVMData(ProductDto dto) {
+    public int updateProductData(ProductDto dto) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt;
         int result = 0;
@@ -53,7 +53,7 @@ public class VmManagementService {
         return result;
     }
 
-    public int deleteVMData(int productId) {
+    public int deleteProductData(int productId) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt;
         int result = 0;
@@ -70,7 +70,7 @@ public class VmManagementService {
         return result;
     }
 
-    public List<ProductDto> showAllVMData() {
+    public List<ProductDto> showAllProductData() {
         List<ProductDto> dtoList = new ArrayList<>();
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt;
@@ -98,7 +98,7 @@ public class VmManagementService {
         return dtoList;
     }
 
-    public ProductDto showOneVMData(int productId) {
+    public ProductDto showOneProductData(int productId) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt;
         ResultSet rs;

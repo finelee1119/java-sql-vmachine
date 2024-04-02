@@ -1,4 +1,4 @@
-package manager.salesManagement;
+package manager.sales;
 
 
 import db.DBConn;
@@ -8,10 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class SalesManagementService {
+public class SalesService {
     public SalesDto getProductSalesReport(int productId) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt;

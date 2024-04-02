@@ -1,4 +1,4 @@
-package manager.vmManagement;
+package manager.product;
 
 import dto.ProductDto;
 import manager.PrintInfo;
@@ -6,50 +6,51 @@ import manager.PrintInfo;
 import java.util.List;
 import java.util.Scanner;
 
-public class VmManagementView {
+public class ProductView {
     Scanner scanner;
-    VmManagementService vmManagementService;
+    ProductService productService;
 
-    public VmManagementView() {
+    public ProductView() {
         this.scanner = new Scanner(System.in);
-        this.vmManagementService = new VmManagementService();
+        this.productService = new ProductService();
     }
 
-    public void showVMManagementView() {
+    public void showProductView() {
         while (true) {
-            showVMManagementMenu();
+            showProductMenu();
 
-            if (!selectVMManagementMenu()) {
+            if (!selectProductMenu()) {
                 break;
             }
         }
     }
 
-    private void showVMManagementMenu() {
+    private void showProductMenu() {
         System.out.println(
+                "[제품관리]\n" +
                 "1.제품등록 2.제품수정 3.제품삭제 4.전체조회 5.제품검색 6.종료");
     }
 
-    private boolean selectVMManagementMenu() {
+    private boolean selectProductMenu() {
         int option = scanner.nextInt();
         switch (option) {
             case 1:
-                insertVMDataView();
+                insertProductView();
                 break;
             case 2:
-                updateVMDataView();
+                updateProductView();
                 break;
             case 3:
-                deleteVMDataView();
+                deleteProductView();
                 break;
             case 4:
-                showAllVMDataView();
+                showAllProductView();
                 break;
             case 5:
-                showOneVMDataView();
+                showOneProductView();
                 break;
             case 6:
-                System.out.println("자판기관리를 종료하시겠습니까?(Y/N)");
+                System.out.println("제품관리를 종료하시겠습니까?(Y/N)");
                 String answer = scanner.next();
                 if (answer.equalsIgnoreCase("Y")) {
                     return false;
@@ -68,7 +69,7 @@ public class VmManagementView {
         return true; // switch문 종료하고 다시 자판기관리 메뉴 보여주기
     }
 
-    private void insertVMDataView() {
+    private void insertProductView() {
         System.out.println("새로운 제품을 등록합니다.");
 
         System.out.println("제품명: ");
@@ -82,18 +83,18 @@ public class VmManagementView {
 
         ProductDto dto = ProductDto.allOfExceptId(productName, productPrice, productStock);
 
-        int result = vmManagementService.insertVMData(dto);
+        int result = productService.insertProductData(dto);
         if (result != 0) {
             System.out.println("제품등록 성공");
         } else {
             System.out.println("제품등록 실패");
         }
     }
-    private void updateVMDataView() {
+    private void updateProductView() {
         System.out.println("수정할 제품의 번호를 입력하세요.");
         int productId = scanner.nextInt();
 
-        ProductDto productDto = vmManagementService.showOneVMData(productId);
+        ProductDto productDto = productService.showOneProductData(productId);
         if (productDto != null) {
             // 기존 제품 정보 출력 + 새로운 제품 정보 받기
             System.out.println("변경 전 제품명: " + productDto.productName());
@@ -109,7 +110,7 @@ public class VmManagementView {
             ProductDto newProductDto = new ProductDto(productId, productName, productPrice, productStock);
 
             // 데이터를 수정하는 메서드 호출
-            int result = vmManagementService.updateVMData(newProductDto);
+            int result = productService.updateProductData(newProductDto);
             if (result != 0) {
                 System.out.println("제품수정 성공");
             } else {
@@ -119,7 +120,7 @@ public class VmManagementView {
             System.out.println("해당 제품이 존재하지 않습니다.");
         }
     }
-    private void deleteVMDataView() {
+    private void deleteProductView() {
         int result;
         String deleteYesOrNo;
 
@@ -127,7 +128,7 @@ public class VmManagementView {
         System.out.println("삭제할 제품의 번호를 입력하세요.");
         int productId = scanner.nextInt();
 
-        ProductDto productDto = vmManagementService.showOneVMData(productId);
+        ProductDto productDto = productService.showOneProductData(productId);
         if (productDto != null) {
             // 삭제 의사 확인하기
             do {
@@ -138,7 +139,7 @@ public class VmManagementView {
 
             if (deleteYesOrNo.equalsIgnoreCase("Y")) {
                 // 삭제 처리하기
-                result = vmManagementService.deleteVMData(productId);
+                result = productService.deleteProductData(productId);
                 if (result != 0) {
                     System.out.println("제품삭제 성공");
                 } else {
@@ -149,9 +150,9 @@ public class VmManagementView {
             System.out.println("해당 제품이 존재하지 않습니다.");
         }
     }
-    public void showAllVMDataView() {
+    public void showAllProductView() {
         List<ProductDto> dtoList;
-        dtoList = vmManagementService.showAllVMData();
+        dtoList = productService.showAllProductData();
 
         if (dtoList.isEmpty()) {
             System.out.println("제품 데이터가 존재하지 않습니다.");
@@ -165,12 +166,12 @@ public class VmManagementView {
             PrintInfo.line();
         }
     }
-    private void showOneVMDataView() {
+    private void showOneProductView() {
         int productId;
 
         System.out.println("검색할 제품번호를 입력하세요.");
         productId = scanner.nextInt();
-        ProductDto productDto = vmManagementService.showOneVMData(productId);
+        ProductDto productDto = productService.showOneProductData(productId);
 
         if (productDto == null) {
             System.out.println("해당 제품이 존재하지 않습니다.");
