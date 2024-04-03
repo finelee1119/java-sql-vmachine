@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5e1dee75-cb05-4a2d-b7be-6a10164f4bbc" name="Changes" comment="commit change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/ManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/ManagerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/member/MemberView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/member/MemberView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/product/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/product/ProductView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/sales/SalesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/sales/SalesView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712104178769</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit change">
+      <option name="closed" value="true" />
+      <created>1712104563131</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712104563131</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
