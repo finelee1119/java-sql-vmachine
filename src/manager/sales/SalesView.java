@@ -97,7 +97,8 @@ public class SalesView {
                 }
                 break;
             case 4:
-                System.out.println("판매관리를 종료하시겠습니까?(Y/N)");
+                String menuName = "판매관리";
+                System.out.println(menuName + "를 종료하시겠습니까?(Y/N)");
                 String answer = scanner.next();
                 if (answer.equalsIgnoreCase("Y")) {
                     return false;

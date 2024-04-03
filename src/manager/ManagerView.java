@@ -46,7 +46,8 @@ public class ManagerView {
                 salesView.showSalesView();
                 break;
             case 4:
-                System.out.println("관리자를 종료하고 첫화면으로 돌아가겠습니까?(Y/N)");
+                String menuName = "관리자";
+                System.out.println(menuName + "를 종료하시겠습니까?(Y/N)");
                 String answer = scanner.next();
                 if (answer.equalsIgnoreCase("Y")) {
                     return false;

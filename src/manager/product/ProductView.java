@@ -50,7 +50,8 @@ public class ProductView {
                 showOneProductView();
                 break;
             case 6:
-                System.out.println("제품관리를 종료하시겠습니까?(Y/N)");
+                String menuName = "제품관리";
+                System.out.println(menuName + "를 종료하시겠습니까?(Y/N)");
                 String answer = scanner.next();
                 if (answer.equalsIgnoreCase("Y")) {
                     return false;

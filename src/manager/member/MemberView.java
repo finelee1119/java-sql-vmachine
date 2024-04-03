@@ -50,7 +50,8 @@ public class MemberView {
                 showOneUserView();
                 break;
             case 6:
-                System.out.println("회원관리를 종료하시겠습니까?(Y/N)");
+                String menuName = "회원관리";
+                System.out.println(menuName + "를 종료하시겠습니까?(Y/N)");
                 String answer = scanner.next();
                 if (answer.equalsIgnoreCase("Y")) {
                     return false;
